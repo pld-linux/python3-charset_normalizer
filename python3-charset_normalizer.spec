@@ -53,6 +53,9 @@ Dokumentacja API modułu Pythona %{module}.
 %prep
 %setup -q -n charset-normalizer-%{version}
 
+# broken, https://github.com/jawah/charset_normalizer/issues/167
+%{__mv} tests/{,NOT-}test_logging.py
+
 %build
 %py3_build
 
