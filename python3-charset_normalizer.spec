@@ -23,6 +23,7 @@ BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	python3-pytest-cov
 %endif
 %if %{with doc}
+BuildRequires:	python3-furo
 BuildRequires:	python3-recommonmark
 BuildRequires:	python3-sphinx_rtd_theme
 BuildRequires:	sphinx-pdg-3
