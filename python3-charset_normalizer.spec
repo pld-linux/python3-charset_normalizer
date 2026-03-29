@@ -58,10 +58,9 @@ Dokumentacja API modułu Pythona %{module}.
 %py3_build
 
 %if %{with tests}
-PYTHONPATH=$(pwd)/build-3/lib \
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTEST_PLUGINS="pytest_cov.plugin" \
-%{__python3} -m pytest tests
+%{__python3} -m pytest -o "pythonpath=$(pwd)/build-3/lib" tests
 %endif
 
 %if %{with doc}
