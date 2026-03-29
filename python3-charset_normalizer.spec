@@ -7,14 +7,14 @@
 Summary:	The Real First Universal Charset Detector
 Summary(pl.UTF-8):	Pierwszy prawdziwy uniwersalny wykrywacz kodowania znaków
 Name:		python3-%{module}
-Version:	2.0.12
-Release:	7
+Version:	3.4.6
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/charset-normalizer/
-Source0:	https://files.pythonhosted.org/packages/source/c/charset-normalizer/charset-normalizer-%{version}.tar.gz
-# Source0-md5:	f6664e0e90dbb3cc9cfc154a980f9864
-URL:		https://github.com/ousret/charset_normalizer
+Source0:	https://files.pythonhosted.org/packages/source/c/charset-normalizer/charset_normalizer-%{version}.tar.gz
+# Source0-md5:	b93ed897a9b7b95841580584e8634f89
+URL:		https://github.com/jawah/charset_normalizer
 BuildRequires:	python3-modules >= 1:3.5.0
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
@@ -52,10 +52,7 @@ API documentation for Python %{module} module.
 Dokumentacja API modułu Pythona %{module}.
 
 %prep
-%setup -q -n charset-normalizer-%{version}
-
-# broken, https://github.com/jawah/charset_normalizer/issues/167
-%{__mv} tests/{,NOT-}test_logging.py
+%setup -q -n %{module}-%{version}
 
 %build
 %py3_build
@@ -82,18 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE README.md
-%dir %{py3_sitescriptdir}/%{module}
-%{py3_sitescriptdir}/%{module}/*.py
-%{py3_sitescriptdir}/%{module}/__pycache__
-%{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %attr(755,root,root) %{_bindir}/normalizer
-%dir %{py3_sitescriptdir}/%{module}/assets
-%{py3_sitescriptdir}/%{module}/assets/*.py
-%{py3_sitescriptdir}/%{module}/assets/__pycache__
-%dir %{py3_sitescriptdir}/%{module}/cli
-%{py3_sitescriptdir}/%{module}/cli/*.py
-%{py3_sitescriptdir}/%{module}/cli/__pycache__
-%{py3_sitescriptdir}/%{module}/py.typed
+%{py3_sitescriptdir}/%{module}
+%{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
 
 %if %{with doc}
 %files apidocs
