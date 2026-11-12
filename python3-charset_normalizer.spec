@@ -7,13 +7,13 @@
 Summary:	The Real First Universal Charset Detector
 Summary(pl.UTF-8):	Pierwszy prawdziwy uniwersalny wykrywacz kodowania znaków
 Name:		python3-%{module}
-Version:	3.4.7
+Version:	3.5.2
 Release:	1
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/charset-normalizer/
 Source0:	https://files.pythonhosted.org/packages/source/c/charset-normalizer/charset_normalizer-%{version}.tar.gz
-# Source0-md5:	68805886064d248d2e5205fd11112d85
+# Source0-md5:	0fd59692f546c0f8318af1728a12627f
 URL:		https://github.com/jawah/charset_normalizer
 BuildRequires:	python3-modules >= 1:3.7
 BuildRequires:	python3-setuptools >= 1:68
